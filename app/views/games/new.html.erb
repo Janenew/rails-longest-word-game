@@ -1,0 +1,26 @@
+<h1> New game </h1>
+
+ <% @letters.each do |letter| %>
+   <button type="button" class="btn btn-primary btn-md">
+    <%= letter %>
+   </button>
+ <% end %>
+ <br>  <br>
+ <p> What is the longer word you can find?</p>
+ <br>
+
+
+
+<form method="get" action="<%= score_path %>">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="hidden" name="letters" value="<%= @letters %>">
+  <div class="input-group">
+    <input type="text" class="form-control" name="word">
+    <div class="input-group-btn">
+      <button class="btn btn-default" type="submit" value="Play">
+        Ask
+      </button>
+    </div>
+  </div>
+</form>
+
